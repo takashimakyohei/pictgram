@@ -21,15 +21,6 @@
         <ul class="nav navbar-nav navbar-right">
           <% if logged_in? %>
           
-         <%= begin %>
-         <li>
-              <%= link_to topics_path do %>
-                <%= image_tag "icons/list.jpeg" %>
-              <% end %>
-            <li>
-              
-           <%= end  %>
-          
             <li>
               <%= link_to favorites_index_path do %>
                 <%= image_tag "icons/heart.png" %>
