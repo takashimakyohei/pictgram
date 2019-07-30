@@ -11,19 +11,21 @@
             
             <% if !topic.favorite_users.include?(current_user) %>
             <%= link_to favorites_path(topic_id: topic.id), method: :post do %>
-            <%= image_tag 'icons/heart-black.png', class: 'topic-index-icon' %>
+           <%= fa_icon 'heart-o  2x',class:"fa-heart-black" %>
             <% end %>
             
             <% else %>
             <%= link_to favorites_path(topic_id: topic.id), method: :delete do %>
-            <%= image_tag 'icons/heart_red.png', class: 'topic-index-icon' %>
+            <%= fa_icon 'heart 2x',class:"fa-heart-red" %>
             <% end %>
             <% end %>
-            
+            <%= topic.favorite_users.count %>
             
             <%= link_to new_comment_path(topic_id: topic.id) do %>
             <%= image_tag 'icons/comment.png', class: 'topic-index-icon' %>
             <% end %>
+            
+          
 
             <p class="topic-text">
               <%= topic.description %>
@@ -31,6 +33,7 @@
             <h4>---コメント---</h4>
            <% topic.comments.each do |comment| %>
            <p><%= comment.body %></p>
+          
            <% end %>
           
           </div>
